@@ -1,0 +1,173 @@
+/* style.css */
+/* 基础重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* 盒模型计算方式 */
+    font-family: 'Microsoft YaHei', sans-serif; /* 中文字体设置 */
+}
+
+/* 页面背景设置 */
+body {
+    background:
+        linear-gradient( /* 半透明遮罩层 */
+            rgba(0, 0, 0, 0.15),
+            rgba(0, 0, 0, 0.15)
+        ),
+        url('https://files.codelife.cc/wallhaven/full/gp/wallhaven-gp17xe.jpg') center/cover fixed;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+}
+
+/* 主容器样式 */
+.container {
+    display: flex;
+    gap: 50px; /* 左右面板间距 */
+    max-width: 1200px;
+    width: 95%;
+    background: rgba(255, 255, 255, 0.88); /* 半透明白色背景 */
+    border-radius: 25px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25); /* 立体投影 */
+    backdrop-filter: blur(3px); /* 背景模糊 */
+    overflow: hidden;
+    padding: 50px 40px;
+    margin: 30px;
+}
+
+/* 左侧面板样式 */
+.left-panel {
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+/* 头像样式 */
+.avatar {
+    width: 240px;  /* 放大头像尺寸 */
+    height: 240px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 10px solid rgba(255, 255, 255, 0.95); /* 高亮边框 */
+    margin-bottom: 30px;
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.3), /* 外阴影 */
+        inset 0 0 20px rgba(255, 255, 255, 0.5); /* 内发光 */
+    transform: translateY(-15px);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* 昵称样式 */
+.nickname {
+    font-size: 28px;
+    font-weight: 600;
+    color: #2c3e50;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: -10px;
+    letter-spacing: 1px; /* 字间距 */
+}
+
+/* 右侧面板样式 */
+.right-panel {
+    flex: 1;
+    position: relative;
+    padding-left: 40px;
+}
+
+/* 装饰性分隔线 */
+.right-panel::before {
+    content: '';
+    position: absolute;
+    left: -25px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 70%;
+    width: 3px;
+    background: linear-gradient(
+        to bottom,
+        transparent 10%,
+        rgba(44, 62, 80, 0.4) 50%,
+        transparent 90%
+    );
+}
+
+/* 内容区域立体效果 */
+.content-box {
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(15px); /* 高强度模糊 */
+    padding: 45px 50px;  /* 增加内边距 */
+    border-radius: 20px;
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.15), /* 外阴影 */
+        inset 0 0 15px rgba(255, 255, 255, 0.6); /* 内发光 */
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    transform: translateY(0);
+    min-height: 40px; /* 最小高度 */
+}
+
+/* 标题样式 */
+h1 {
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-size: 36px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+/* 标题下划线 */
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, #3498db, #2c3e50);
+    border-radius: 2px;
+}
+
+/* 正文样式 */
+p {
+    color: #4a5568;
+    line-height: 1.8;
+    font-size: 18px;
+    margin-top: 25px;
+    max-width: 800px;
+}
+
+/* 响应式设计 */
+@media (max-width: 992px) {
+    .container {
+        flex-direction: column;
+        padding: 30px;
+        gap: 30px;
+    }
+
+    .avatar {
+        width: 180px;
+        height: 180px;
+        transform: none;
+    }
+
+    .right-panel {
+        padding: 0;
+    }
+
+    .right-panel::before {
+        display: none;
+    }
+
+    .content-box {
+        padding: 30px;
+        min-height: auto;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+}
